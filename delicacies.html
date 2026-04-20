@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omosaa's Bakery | Delicacies</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FFF5E0;
+            color: #5E2E3E;
+            line-height: 1.6;
+        }
+
+        /* Floating Navigation */
+        .navbar {
+            position: fixed;
+            top: 20px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 0.8rem 2rem;
+            background: rgba(255, 245, 224, 0.92);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            width: fit-content;
+            margin: 0 auto;
+            z-index: 1000;
+            border: 1px solid rgba(184, 155, 178, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar a {
+            color: #B89BB2;
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: #8B6B82;
+            transform: translateY(-2px);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 6rem 2rem 2rem;
+        }
+
+        /* Page Title */
+        .page-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3rem;
+            color: #B89BB2;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: normal;
+        }
+
+        /* Category Section */
+        .category {
+            margin-bottom: 4rem;
+        }
+
+        .category-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2rem;
+            color: #B89BB2;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid rgba(184, 155, 178, 0.3);
+            display: inline-block;
+            padding-bottom: 0.3rem;
+        }
+
+        /* Items Grid */
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Item Card */
+        .item-card {
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 20px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(184, 155, 178, 0.2);
+        }
+
+        .item-card:hover {
+            transform: translateY(-5px);
+            background: white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        .item-name {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.6rem;
+            color: #5E2E3E;
+            margin-bottom: 0.5rem;
+        }
+
+        .item-description {
+            font-size: 0.8rem;
+            color: #8B6B82;
+            margin-bottom: 1rem;
+        }
+
+        /* Options Styling */
+        .options-group {
+            margin: 1rem 0;
+        }
+
+        .options-group label {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #5E2E3E;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px 12px;
+            border-radius: 10px;
+            border: 1px solid rgba(184, 155, 178, 0.5);
+            background: #FFF5E0;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            color: #5E2E3E;
+            cursor: pointer;
+        }
+
+        .price-display {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #B89BB2;
+            margin: 0.5rem 0;
+        }
+
+        .add-btn {
+            background: #B89BB2;
+            color: #FFF5E0;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            width: 100%;
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+        }
+
+        .add-btn:hover {
+            background: #8B6B82;
+            transform: scale(1.02);
+        }
+
+        /* Basket Section - STAYS BELOW, NOT STICKY */
+        .basket-section {
+            background: rgba(184, 155, 178, 0.15);
+            border-radius: 30px;
+            padding: 2rem;
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+            width: 100%;
+        }
+
+        .basket-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.8rem;
+            color: #B89BB2;
+            margin-bottom: 1rem;
+        }
+
+        .basket-items {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 1rem;
+        }
+
+        .basket-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(184, 155, 178, 0.2);
+            font-size: 0.85rem;
+        }
+
+        .basket-item-info {
+            flex: 2;
+        }
+
+        .basket-item-price {
+            flex: 1;
+            text-align: right;
+        }
+
+        .remove-item {
+            background: none;
+            border: none;
+            color: #B89BB2;
+            cursor: pointer;
+            margin-left: 10px;
+            font-size: 1rem;
+        }
+
+        .basket-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #5E2E3E;
+            border-top: 2px solid rgba(184, 155, 178, 0.3);
+        }
+
+        .confirm-btn {
+            background: #B89BB2;
+            color: #FFF5E0;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            margin-top: 1rem;
+            width: 100%;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .confirm-btn:hover {
+            background: #8B6B82;
+            transform: translateY(-2px);
+        }
+
+        .empty-basket {
+            text-align: center;
+            color: #8B6B82;
+            padding: 1rem;
+            font-style: italic;
+        }
+
+        /* Footer */
+        .footer-card {
+            background: #B89BB2;
+            border-radius: 30px;
+            padding: 2rem;
+            text-align: center;
+            color: #FFF5E0;
+            margin-top: 1rem;
+        }
+
+        .footer-card h3 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: normal;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                gap: 1rem;
+                padding: 0.6rem 1.2rem;
+                top: 15px;
+            }
+            .navbar a {
+                font-size: 0.7rem;
+            }
+            .container {
+                padding: 5rem 1.5rem 2rem;
+            }
+            .page-title {
+                font-size: 2rem;
+            }
+            .items-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Navigation -->
+    <div class="navbar">
+        <a href="index.html">Intro</a>
+        <a href="home.html">Home</a>
+        <a href="delicacies.html">Delicacies</a>
+        <a href="orders.html">Orders</a>
+        <a href="announcement.html">Announcement</a>
+    </div>
+
+    <div class="container">
+        <h1 class="page-title">Our Delicacies</h1>
+
+        <!-- Cupcakes Section -->
+        <div class="category">
+            <h2 class="category-title">🧁 Cupcakes</h2>
+            <div class="items-grid" id="cupcakes-grid"></div>
+        </div>
+
+        <!-- Cakes Section -->
+        <div class="category">
+            <h2 class="category-title">🍰 Cakes</h2>
+            <div class="items-grid" id="cakes-grid"></div>
+        </div>
+
+        <!-- Breads Section -->
+        <div class="category">
+            <h2 class="category-title">🍞 Breads</h2>
+            <div class="items-grid" id="breads-grid"></div>
+        </div>
+
+        <!-- Shopping Basket - Stays Below Content -->
+        <div class="basket-section" id="basket-section">
+            <h3 class="basket-title">🛒 Your Basket</h3>
+            <div class="basket-items" id="basket-items"></div>
+            <div class="basket-total">
+                <span>Total:</span>
+                <span id="basket-total-amount">KES 0</span>
+            </div>
+            <a href="orders.html" class="confirm-btn" id="confirm-order-btn">Confirm Order →</a>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer-card">
+            <h3>Omosaa's Bakery</h3>
+            <p>📍 Nairobi, Kenya | 📞 0708727556 | ✨ Baked fresh daily with love ✨</p>
+        </div>
+    </div>
+
+    <script>
+        // Product Data
+        const products = {
+            cupcakes: [
+                { name: "Vanilla Dream", basePrice: 150, flavors: ["Vanilla", "Chocolate", "Strawberry", "Mint"] },
+                { name: "Red Velvet", basePrice: 200, flavors: ["Red Velvet", "Cream Cheese"] },
+                { name: "Double Chocolate", basePrice: 200, flavors: ["Dark Chocolate", "Milk Chocolate"] },
+                { name: "Caramel Bliss", basePrice: 250, flavors: ["Salted Caramel", "Caramel"] }
+            ],
+            cakes: [
+                { name: "Black Forest", basePricePerKg: 2500 },
+                { name: "White Forest", basePricePerKg: 2500 },
+                { name: "Red Velvet", basePricePerKg: 2800 },
+                { name: "Cheesecake", basePricePerKg: 3000 },
+                { name: "Vanilla", basePricePerKg: 2000 },
+                { name: "Chocolate Fudge", basePricePerKg: 2800 },
+                { name: "Mint Fudge", basePricePerKg: 2900 },
+                { name: "Strawberry", basePricePerKg: 2700 },
+                { name: "Passion Cake", basePricePerKg: 2500 },
+                { name: "Carrot Cake", basePricePerKg: 2800 },
+                { name: "All Flavor Cake", basePricePerKg: 4800 }
+            ],
+            breads: [
+                { name: "Banana Bread", basePricePer100g: 120, sizes: [250, 500, 750, 1000] },
+                { name: "Chocolate Chip Bread", basePricePer100g: 140, sizes: [250, 500, 750, 1000] },
+                { name: "Pumpkin Bread", basePricePer100g: 130, sizes: [250, 500, 750, 1000] },
+                { name: "Zucchini Bread", basePricePer100g: 130, sizes: [250, 500, 750, 1000] }
+            ]
+        };
+
+        // Piece options for cupcakes
+        const pieceOptions = [
+            { pieces: 6, multiplier: 6, label: "6 pieces (+0%)" },
+            { pieces: 8, multiplier: 8, label: "8 pieces (+15%)" },
+            { pieces: 12, multiplier: 12, label: "12 pieces (+25%)" }
+        ];
+
+        // Kg options for cakes
+        const kgOptions = [0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 5, 6];
+
+        // Cart array
+        let cart = [];
+
+        // Load cart from localStorage
+        function loadCart() {
+            const savedCart = localStorage.getItem('omosaaCart');
+            if (savedCart) {
+                cart = JSON.parse(savedCart);
+            }
+            renderCart();
+        }
+
+        // Save cart to localStorage
+        function saveCart() {
+            localStorage.setItem('omosaaCart', JSON.stringify(cart));
+            renderCart();
+        }
+
+        // Add to cart
+        function addToCart(item) {
+            cart.push(item);
+            saveCart();
+            showNotification(`Added ${item.name} to basket!`);
+        }
+
+        // Remove from cart
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            saveCart();
+        }
+
+        // Render cart
+        function renderCart() {
+            const basketContainer = document.getElementById('basket-items');
+            const totalSpan = document.getElementById('basket-total-amount');
+            
+            if (!basketContainer) return;
+
+            if (cart.length === 0) {
+                basketContainer.innerHTML = '<div class="empty-basket">Your basket is empty. Add some delicious treats!</div>';
+                totalSpan.innerText = 'KES 0';
+                return;
+            }
+
+            let total = 0;
+            basketContainer.innerHTML = cart.map((item, index) => {
+                total += item.price;
+                return `
+                    <div class="basket-item">
+                        <div class="basket-item-info">
+                            <strong>${item.name}</strong><br>
+                            <small>${item.detail}</small>
+                        </div>
+                        <div class="basket-item-price">
+                            KES ${item.price.toLocaleString()}
+                            <button class="remove-item" onclick="removeFromCart(${index})">🗑️</button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            totalSpan.innerText = `KES ${total.toLocaleString()}`;
+            
+            // Save total to localStorage for orders page
+            localStorage.setItem('omosaaCartTotal', total);
+            localStorage.setItem('omosaaCartItems', JSON.stringify(cart));
+        }
+
+        // Show notification
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background: #B89BB2;
+                color: #FFF5E0;
+                padding: 12px 24px;
+                border-radius: 50px;
+                font-family: 'Inter', sans-serif;
+                font-size: 0.9rem;
+                z-index: 2000;
+                animation: fadeInUp 0.3s ease;
+            `;
+            notification.innerText = message;
+            document.body.appendChild(notification);
+            setTimeout(() => notification.remove(), 2000);
+        }
+
+        // Render cupcakes
+        function renderCupcakes() {
+            const grid = document.getElementById('cupcakes-grid');
+            if (!grid) return;
+            
+            grid.innerHTML = products.cupcakes.map(cupcake => `
+                <div class="item-card">
+                    <div class="item-name">${cupcake.name}</div>
+                    <div class="item-description">Choose your flavor and quantity</div>
+                    <div class="options-group">
+                        <label>Flavor:</label>
+                        <select class="cupcake-flavor" data-name="${cupcake.name}" data-baseprice="${cupcake.basePrice}">
+                            ${cupcake.flavors.map(f => `<option value="${f}">${f}</option>`).join('')}
+                        </select>
+                    </div>
+                    <div class="options-group">
+                        <label>Quantity:</label>
+                        <select class="cupcake-quantity" data-name="${cupcake.name}" data-baseprice="${cupcake.basePrice}">
+                            ${pieceOptions.map(opt => `<option value="${opt.pieces}" data-multiplier="${opt.multiplier}">${opt.label} - KES ${(cupcake.basePrice * opt.multiplier).toLocaleString()}</option>`).join('')}
+                        </select>
+                    </div>
+                    <div class="price-display" id="cupcake-price-${cupcake.name.replace(/\s/g, '')}">KES ${cupcake.basePrice * 6}</div>
+                    <button class="add-btn" onclick="addCupcakeToCart('${cupcake.name}')">Add to Basket 🧁</button>
+                </div>
+            `).join('');
+        }
+
+        // Add cupcake to cart
+        window.addCupcakeToCart = function(cupcakeName) {
+            const flavorSelect = document.querySelector(`.cupcake-flavor[data-name="${cupcakeName}"]`);
+            const quantitySelect = document.querySelector(`.cupcake-quantity[data-name="${cupcakeName}"]`);
+            const basePrice = parseInt(quantitySelect.dataset.baseprice);
+            const selectedOption = quantitySelect.options[quantitySelect.selectedIndex];
+            const multiplier = parseInt(selectedOption.dataset.multiplier);
+            const pieces = parseInt(selectedOption.value);
+            const flavor = flavorSelect.value;
+            const totalPrice = basePrice * multiplier;
+            
+            addToCart({
+                name: `${cupcakeName} Cupcake`,
+                detail: `${flavor} - ${pieces} pieces`,
+                price: totalPrice,
+                type: 'cupcake'
+            });
+        };
+
+        // Render cakes
+        function renderCakes() {
+            const grid = document.getElementById('cakes-grid');
+            if (!grid) return;
+            
+            grid.innerHTML = products.cakes.map(cake => `
+                <div class="item-card">
+                    <div class="item-name">${cake.name}</div>
+                    <div class="item-description">Choose your size (kg)</div>
+                    <div class="options-group">
+                        <label>Weight:</label>
+                        <select class="cake-weight" data-name="${cake.name}" data-baseprice="${cake.basePricePerKg}">
+                            ${kgOptions.map(kg => `<option value="${kg}">${kg} kg - KES ${(cake.basePricePerKg * kg).toLocaleString()}</option>`).join('')}
+                        </select>
+                    </div>
+                    <div class="price-display" id="cake-price-${cake.name.replace(/\s/g, '')}">KES ${cake.basePricePerKg * 1}</div>
+                    <button class="add-btn" onclick="addCakeToCart('${cake.name}')">Add to Basket 🍰</button>
+                </div>
+            `).join('');
+        }
+
+        // Add cake to cart
+        window.addCakeToCart = function(cakeName) {
+            const weightSelect = document.querySelector(`.cake-weight[data-name="${cakeName}"]`);
+            const basePrice = parseInt(weightSelect.dataset.baseprice);
+            const kg = parseFloat(weightSelect.value);
+            const totalPrice = basePrice * kg;
+            
+            addToCart({
+                name: cakeName,
+                detail: `${kg} kg`,
+                price: totalPrice,
+                type: 'cake'
+            });
+        };
+
+        // Render breads
+        function renderBreads() {
+            const grid = document.getElementById('breads-grid');
+            if (!grid) return;
+            
+            grid.innerHTML = products.breads.map(bread => `
+                <div class="item-card">
+                    <div class="item-name">${bread.name}</div>
+                    <div class="item-description">Choose weight (grams)</div>
+                    <div class="options-group">
+                        <label>Weight:</label>
+                        <select class="bread-weight" data-name="${bread.name}" data-baseprice="${bread.basePricePer100g}">
+                            ${bread.sizes.map(g => `<option value="${g}">${g}g - KES ${(bread.basePricePer100g * g / 100).toLocaleString()}</option>`).join('')}
+                        </select>
+                    </div>
+                    <div class="price-display" id="bread-price-${bread.name.replace(/\s/g, '')}">KES ${bread.basePricePer100g * 250 / 100}</div>
+                    <button class="add-btn" onclick="addBreadToCart('${bread.name}')">Add to Basket 🍞</button>
+                </div>
+            `).join('');
+        }
+
+        // Add bread to cart
+        window.addBreadToCart = function(breadName) {
+            const weightSelect = document.querySelector(`.bread-weight[data-name="${breadName}"]`);
+            const basePricePer100g = parseInt(weightSelect.dataset.baseprice);
+            const grams = parseInt(weightSelect.value);
+            const totalPrice = (basePricePer100g * grams) / 100;
+            
+            addToCart({
+                name: breadName,
+                detail: `${grams}g`,
+                price: totalPrice,
+                type: 'bread'
+            });
+        };
+
+        // Initialize page
+        function init() {
+            renderCupcakes();
+            renderCakes();
+            renderBreads();
+            loadCart();
+        }
+
+        init();
+    </script>
+</body>
+</html>

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omosaa's Bakery | Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Great+Vibes&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FFF5E0;
+            color: #5E2E3E;
+            line-height: 1.6;
+        }
+
+        /* Floating Navigation */
+        .navbar {
+            position: fixed;
+            top: 20px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 0.8rem 2rem;
+            background: rgba(255, 245, 224, 0.92);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            width: fit-content;
+            margin: 0 auto;
+            z-index: 1000;
+            border: 1px solid rgba(184, 155, 178, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar a {
+            color: #B89BB2;
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: #8B6B82;
+            transform: translateY(-2px);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem 4rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeIn 1.5s ease;
+        }
+
+        .hero h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4rem;
+            color: #B89BB2;
+            margin-bottom: 0.5rem;
+            font-weight: normal;
+        }
+
+        .hero p {
+            font-family: 'Inter', serif;
+            font-size: 0.9rem;
+            color: #8B6B82;
+            max-width: 700px;
+            margin: 0 auto;
+            font-style: italic;
+        }
+
+        /* Story Section - Centered Paragraph, No Heading */
+        .story-section {
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+            text-align: center;
+        }
+
+        .story-section p {
+            font-size: 1rem;
+            color: #5E2E3E;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.2rem;
+            color: #B89BB2;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: normal;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #8B6B82;
+            font-size: 0.85rem;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        /* Ingredients Grid */
+        .ingredients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 3rem;
+        }
+
+        .ingredient-card {
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 20px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(184, 155, 178, 0.2);
+        }
+
+        .ingredient-card:hover {
+            transform: translateY(-5px);
+            background: white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        .ingredient-card i {
+            font-size: 2rem;
+            color: #B89BB2;
+            margin-bottom: 0.8rem;
+        }
+
+        .ingredient-card h3 {
+            font-size: 1.1rem;
+            color: #5E2E3E;
+            margin-bottom: 0.5rem;
+        }
+
+        .ingredient-card p {
+            font-size: 0.8rem;
+            color: #8B6B82;
+        }
+
+        /* Kenyan Staples Special Style */
+        .kenyan-card {
+            background: rgba(184, 155, 178, 0.1);
+            border-color: #B89BB2;
+        }
+
+        /* Promise Section */
+        .promise-section {
+            background: rgba(184, 155, 178, 0.1);
+            border-radius: 30px;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .promise-section h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2rem;
+            color: #B89BB2;
+            margin-bottom: 1rem;
+        }
+
+        .promise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .promise-item {
+            font-size: 0.9rem;
+            color: #5E2E3E;
+        }
+
+        .promise-item i {
+            color: #B89BB2;
+            margin-right: 8px;
+        }
+
+        /* CTA Buttons */
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2rem 0 3rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            font-family: 'Inter', sans-serif;
+            padding: 12px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #B89BB2;
+            color: #FFF5E0;
+            border: 1px solid #B89BB2;
+        }
+
+        .btn-primary:hover {
+            background: #FFF5E0;
+            color: #B89BB2;
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #B89BB2;
+            border: 1px solid #B89BB2;
+        }
+
+        .btn-secondary:hover {
+            background: #B89BB2;
+            color: #FFF5E0;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        .footer-card {
+            background: #B89BB2;
+            border-radius: 30px;
+            padding: 2rem;
+            text-align: center;
+            color: #FFF5E0;
+        }
+
+        .footer-card h3 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: normal;
+        }
+
+        .footer-card p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        .footer-card .social-links {
+            margin-top: 1rem;
+        }
+
+        .footer-card .social-links a {
+            color: #FFF5E0;
+            margin: 0 0.5rem;
+            font-size: 1.2rem;
+            transition: opacity 0.3s;
+        }
+
+        .footer-card .social-links a:hover {
+            opacity: 0.7;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                gap: 1rem;
+                padding: 0.6rem 1.2rem;
+                top: 15px;
+            }
+            .navbar a {
+                font-size: 0.7rem;
+            }
+            .container {
+                padding: 5rem 1.5rem 3rem;
+            }
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .story-section p {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                gap: 0.7rem;
+                padding: 0.5rem 1rem;
+            }
+            .navbar a {
+                font-size: 0.6rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .cta-buttons {
+                gap: 1rem;
+            }
+            .btn {
+                padding: 8px 20px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Navigation -->
+    <div class="navbar">
+        <a href="index.html">Intro</a>
+        <a href="home.html">Home</a>
+        <a href="delicacies.html">Delicacies</a>
+        <a href="orders.html">Orders</a>
+        <a href="announcement.html">Announcement</a>
+    </div>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>Omosaa's Story</h1>
+            <p>Where love meets luxury in every bite.</p>
+        </div>
+
+        <!-- Story Section - No Heading, Centered Paragraph -->
+        <div class="story-section">
+            <p>Baking started as a little bit of therapy for me, Omosaa;a way to pour love into something sweet. I learned and believe that the best ingredient in any recipe is always the heart. Today, every cake, bread, and pastry is still made by hand, with the same warmth and intention i started with. Because at Omosaa's Bakery, we don't just bake, we create joy, one crumb at a time.</p>
+        </div>
+
+        <!-- Foreign Luxury Ingredients -->
+        <h2 class="section-title">A Taste of the World</h2>
+        <p class="section-subtitle">Luxury ingredients, flown in for you</p>
+        <div class="ingredients-grid">
+            <div class="ingredient-card">
+                <i class="fas fa-chocolate-bar"></i>
+                <h3>Hermès Chocolate</h3>
+                <p>Rare, silky-smooth, and utterly luxurious — imported for our signature cakes and pastries.</p>
+            </div>
+            <div class="ingredient-card">
+                <i class="fas fa-seedling"></i>
+                <h3>Italian Pistachio Paste</h3>
+                <p>Creamy, nutty, authentic — straight from Sicily.</p>
+            </div>
+            <div class="ingredient-card">
+                <i class="fas fa-leaf"></i>
+                <h3>French Vanilla Bean</h3>
+                <p>Real vanilla. Not extract. You can taste the difference.</p>
+            </div>
+            <div class="ingredient-card">
+                <i class="fas fa-wheat-alt"></i>
+                <h3>Unbleached French Flour</h3>
+                <p>Finely milled, never treated — lighter, fluffier bakes.</p>
+            </div>
+        </div>
+
+        <!-- Kenyan Staples Section -->
+        <h2 class="section-title">Trusted Kenyan Goodness</h2>
+        <p class="section-subtitle">Fresh, local, and always reliable</p>
+        <div class="ingredients-grid">
+            <div class="ingredient-card kenyan-card">
+                <i class="fas fa-tint"></i>
+                <h3>Fresh Kenyan Milk</h3>
+                <p>Sourced from local farms — rich, creamy, and pure.</p>
+            </div>
+            <div class="ingredient-card kenyan-card">
+                <i class="fas fa-egg"></i>
+                <h3>Free-Range Eggs</h3>
+                <p>Organic, golden-yolked, and full of flavor.</p>
+            </div>
+            <div class="ingredient-card kenyan-card">
+                <i class="fas fa-cube"></i>
+                <h3>Kenyan Sugar</h3>
+                <p>Sweet, fine, and perfectly balanced.</p>
+            </div>
+            <div class="ingredient-card kenyan-card">
+                <i class="fas fa-birthday-cake"></i>
+                <h3>Sprinkles & M&Ms</h3>
+                <p>Colorful, fun, and absolutely irresistible.</p>
+            </div>
+        </div>
+
+        <!-- You Can Never Go Wrong with Omosaa Section -->
+        <div class="promise-section">
+            <h2>You Can Never Go Wrong with Omosaa</h2>
+            <div class="promise-grid">
+                <div class="promise-item"><i class="fas fa-check-circle"></i> Baked fresh — never day-old</div>
+                <div class="promise-item"><i class="fas fa-check-circle"></i> Custom cakes that taste as good as they look</div>
+                <div class="promise-item"><i class="fas fa-check-circle"></i> We listen — you tell us, we make it</div>
+                <div class="promise-item"><i class="fas fa-check-circle"></i> Nairobi delivery, warm and on time</div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="cta-buttons">
+            <a href="orders.html" class="btn btn-primary">Order Now</a>
+            <a href="delicacies.html" class="btn btn-secondary">See Delicacies</a>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer-card">
+            <h3>Omosaa's Bakery</h3>
+            <p>📍 Nairobi, Kenya</p>
+            <p>📞 0708727556 | 📧 omosaa@bakery.co.ke</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p style="margin-top: 1rem; font-size: 0.7rem;">✨ Baked fresh daily with love ✨</p>
+        </div>
+    </div>
+</body>
+</html>
