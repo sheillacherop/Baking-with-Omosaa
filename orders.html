@@ -15,12 +15,17 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #FFF5E0;
-            color: #5E2E3E;
+            /* Displays Bakery4.png at its natural size as the background */
+            background-image: url('images/Bakery4.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            color: #1d3f3d; /* Dark Teal text color */
             line-height: 1.6;
         }
 
-        /* Floating Navigation */
+        /* Floating Navigation - Dark Teal & Mint Cream */
         .navbar {
             position: fixed;
             top: 20px;
@@ -30,18 +35,18 @@
             justify-content: center;
             gap: 2rem;
             padding: 0.8rem 2rem;
-            background: rgba(255, 245, 224, 0.92);
+            background: rgba(29, 63, 61, 0.9); /* Dark Teal Background */
             backdrop-filter: blur(10px);
             border-radius: 50px;
             width: fit-content;
             margin: 0 auto;
             z-index: 1000;
-            border: 1px solid rgba(184, 155, 178, 0.3);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(225, 247, 244, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
         .navbar a {
-            color: #B89BB2;
+            color: #E1F7F4; /* Mint Cream Link Color */
             text-decoration: none;
             font-family: 'Inter', sans-serif;
             font-weight: 500;
@@ -51,7 +56,7 @@
         }
 
         .navbar a:hover {
-            color: #8B6B82;
+            color: #ffffff;
             transform: translateY(-2px);
         }
 
@@ -59,17 +64,18 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 6rem 2rem 4rem;
+            padding: 7rem 2rem 4rem;
         }
 
         /* Page Title */
         .page-title {
             font-family: 'Great Vibes', cursive;
-            font-size: 3rem;
-            color: #B89BB2;
+            font-size: 3.5rem;
+            color: #1d3f3d; /* Dark Teal */
             text-align: center;
             margin-bottom: 2rem;
             font-weight: normal;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6);
         }
 
         /* Two Column Layout */
@@ -80,22 +86,23 @@
             margin-bottom: 2rem;
         }
 
-        /* Form Section */
+        /* Frosted Form Sections */
         .form-section, .summary-section {
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(5px);
             border-radius: 30px;
             padding: 2rem;
-            border: 1px solid rgba(184, 155, 178, 0.2);
+            border: 1px solid rgba(29, 63, 61, 0.15);
         }
 
         .section-title {
             font-family: 'Great Vibes', cursive;
-            font-size: 1.8rem;
-            color: #B89BB2;
+            font-size: 2.2rem;
+            color: #1d3f3d; /* Dark Teal */
             margin-bottom: 1.5rem;
         }
 
-        /* Form Styles */
+        /* Form Input Configurations */
         .form-group {
             margin-bottom: 1.2rem;
         }
@@ -103,8 +110,8 @@
         .form-group label {
             display: block;
             font-size: 0.85rem;
-            font-weight: 500;
-            color: #5E2E3E;
+            font-weight: 600;
+            color: #1d3f3d;
             margin-bottom: 0.5rem;
         }
 
@@ -112,20 +119,21 @@
         .form-group select, 
         .form-group textarea {
             width: 100%;
-            padding: 10px 14px;
+            padding: 12px 14px;
             border-radius: 12px;
-            border: 1px solid rgba(184, 155, 178, 0.5);
-            background: #FFF5E0;
+            border: 1px solid rgba(29, 63, 61, 0.3);
+            background: #ffffff;
             font-family: 'Inter', sans-serif;
             font-size: 0.9rem;
-            color: #5E2E3E;
+            color: #1d3f3d;
+            outline: none;
         }
 
         .form-group textarea {
             resize: vertical;
         }
 
-        /* Order Summary - SMALLER FONT */
+        /* Order Items Workspace */
         .order-items {
             max-height: 300px;
             overflow-y: auto;
@@ -135,9 +143,11 @@
         .order-item {
             display: flex;
             justify-content: space-between;
-            padding: 0.6rem 0;
-            border-bottom: 1px solid rgba(184, 155, 178, 0.15);
-            font-size: 0.75rem;
+            align-items: center;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(29, 63, 61, 0.1);
+            font-size: 0.85rem;
+            color: #1d3f3d;
         }
 
         .order-item-info {
@@ -145,31 +155,32 @@
         }
 
         .order-item-info strong {
-            font-size: 0.8rem;
+            font-size: 0.9rem;
         }
 
         .order-item-info small {
-            font-size: 0.7rem;
+            font-size: 0.75rem;
+            color: #2c4e4b;
         }
 
         .order-item-price {
             flex: 1;
             text-align: right;
-            font-weight: 500;
-            font-size: 0.75rem;
+            font-weight: 600;
+            font-size: 0.85rem;
         }
 
         .summary-total {
             display: flex;
             justify-content: space-between;
             padding-top: 0.8rem;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 600;
-            color: #5E2E3E;
-            border-top: 1px solid rgba(184, 155, 178, 0.3);
+            color: #1d3f3d;
+            border-top: 1px solid rgba(29, 63, 61, 0.15);
         }
 
-        /* Delivery Options */
+        /* Delivery Mechanics Component */
         .delivery-options {
             margin: 1rem 0;
         }
@@ -178,21 +189,23 @@
             display: flex;
             align-items: center;
             gap: 0.8rem;
-            padding: 0.8rem;
-            border: 1px solid rgba(184, 155, 178, 0.3);
+            padding: 1rem;
+            border: 1px solid rgba(29, 63, 61, 0.25);
             border-radius: 15px;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.6rem;
             cursor: pointer;
             transition: all 0.3s ease;
+            background: #ffffff;
         }
 
         .delivery-option:hover {
-            background: rgba(184, 155, 178, 0.1);
+            background: rgba(225, 247, 244, 0.5);
         }
 
         .delivery-option input {
             width: auto;
             margin: 0;
+            accent-color: #1d3f3d;
         }
 
         .delivery-option label {
@@ -200,87 +213,78 @@
             cursor: pointer;
             flex: 1;
             font-size: 0.85rem;
+            color: #1d3f3d;
+            font-weight: 500;
         }
 
-        /* Submit Button */
+        /* Order Processing Trigger */
         .submit-btn {
-            background: #B89BB2;
-            color: #FFF5E0;
+            background: #1d3f3d; /* Dark Teal */
+            color: #E1F7F4;       /* Mint Cream */
             border: none;
-            padding: 12px 24px;
+            padding: 14px 24px;
             border-radius: 50px;
             cursor: pointer;
             font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 500;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
             width: 100%;
             transition: all 0.3s ease;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
         }
 
         .submit-btn:hover {
-            background: #8B6B82;
+            background: #2c4e4b;
             transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
-        /* Footer */
+        /* Unified Document Footer */
         .footer-card {
-            background: #B89BB2;
+            background: rgba(29, 63, 61, 0.95); /* Dark Teal */
             border-radius: 30px;
-            padding: 2rem;
+            padding: 2.5rem;
             text-align: center;
-            color: #FFF5E0;
-            margin-top: 2rem;
+            color: #E1F7F4; /* Mint Cream */
+            margin-top: 4rem;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
         }
 
         .footer-card h3 {
             font-family: 'Great Vibes', cursive;
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             margin-bottom: 0.5rem;
             font-weight: normal;
         }
 
         .footer-card p {
-            font-size: 0.8rem;
+            font-size: 0.9rem;
+            opacity: 0.9;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
-            .navbar {
-                gap: 1rem;
-                padding: 0.6rem 1.2rem;
-                top: 15px;
-            }
-            .navbar a {
-                font-size: 0.7rem;
-            }
-            .container {
-                padding: 5rem 1.5rem 3rem;
-            }
-            .order-grid {
-                grid-template-columns: 1fr;
-            }
-            .page-title {
-                font-size: 2rem;
-            }
+            .navbar { gap: 1rem; padding: 0.6rem 1.2rem; top: 15px; }
+            .navbar a { font-size: 0.8rem; }
+            .container { padding: 6rem 1.5rem 3rem; }
+            .order-grid { grid-template-columns: 1fr; }
+            .page-title { font-size: 2.5rem; }
         }
     </style>
 </head>
 <body>
-    <!-- Floating Navigation -->
+    
     <div class="navbar">
         <a href="index.html">Intro</a>
         <a href="home.html">Home</a>
         <a href="delicacies.html">Delicacies</a>
         <a href="orders.html">Orders</a>
-        <a href="announcement.html">Announcement</a>
     </div>
 
     <div class="container">
         <h1 class="page-title">Place Your Order</h1>
 
         <div class="order-grid">
-            <!-- Customer Information Form -->
             <div class="form-section">
                 <h2 class="section-title">Your Details</h2>
                 <form id="order-form">
@@ -297,7 +301,7 @@
                         <input type="email" id="email">
                     </div>
                     
-                    <h3 style="font-size: 1rem; margin: 1rem 0 0.5rem; color: #5E2E3E;">Delivery Information</h3>
+                    <h3 style="font-size: 1rem; margin: 1.5rem 0 0.5rem; color: #1d3f3d; font-weight: 600;">Delivery Information</h3>
                     <div class="delivery-options" id="delivery-options">
                         <div class="delivery-option">
                             <input type="radio" name="delivery" value="pickup" id="pickup" checked>
@@ -316,34 +320,31 @@
 
                     <div class="form-group">
                         <label>Special Instructions (optional)</label>
-                        <textarea id="instructions" rows="3" placeholder="Any special requests? e.g., birthday message, allergies, preferred delivery time..."></textarea>
+                        <textarea id="instructions" rows="3" placeholder="Any special requests?"></textarea>
                     </div>
                 </form>
             </div>
 
-            <!-- Order Summary Section -->
             <div class="summary-section">
                 <h2 class="section-title">Your Order</h2>
-                <div class="order-items" id="order-items">
-                    <!-- Cart items will appear here -->
-                </div>
+                <div class="order-items" id="order-items"></div>
+                
                 <div class="summary-total">
-                    <span>Subtotal:</span>
+                    <span>Delicacies Subtotal:</span>
                     <span id="subtotal-amount">KES 0</span>
                 </div>
                 <div class="summary-total" id="delivery-row" style="display: none;">
                     <span>Delivery Fee:</span>
                     <span id="delivery-fee">KES 300</span>
                 </div>
-                <div class="summary-total" style="border-top: 2px solid rgba(184, 155, 178, 0.3); margin-top: 0.5rem; padding-top: 0.8rem;">
-                    <span>Total:</span>
-                    <span id="total-amount" style="font-size: 1.1rem; color: #B89BB2;">KES 0</span>
+                <div class="summary-total" style="border-top: 2px solid rgba(29, 63, 61, 0.3); margin-top: 0.5rem; padding-top: 0.8rem;">
+                    <span>Grand Total:</span>
+                    <span id="total-amount" style="font-size: 1.2rem; color: #1d3f3d; font-weight: 700;">KES 0</span>
                 </div>
                 <button class="submit-btn" id="submit-order-btn">Confirm Order →</button>
             </div>
         </div>
 
-        <!-- Footer -->
         <div class="footer-card">
             <h3>Omosaa's Bakery</h3>
             <p>📍 Nairobi, Kenya | 📞 0791 830654 | ✨ Baked fresh daily with love ✨</p>
@@ -355,40 +356,25 @@
         let cartTotal = 0;
         let deliveryFee = 0;
         let deliveryMethod = 'pickup';
-
-        // Omosaa's WhatsApp number
         const OMOSAA_WHATSAPP = '254708727556';
 
-        // Load cart from localStorage
         function loadCart() {
             const savedCart = localStorage.getItem('omosaaCart');
-            const savedTotal = localStorage.getItem('omosaaCartTotal');
-            
             if (savedCart) {
                 cart = JSON.parse(savedCart);
-            }
-            if (savedTotal) {
-                cartTotal = parseInt(savedTotal);
+                cartTotal = cart.reduce((sum, item) => sum + item.price, 0);
             }
             
             if (cart.length === 0) {
                 window.location.href = 'delicacies.html';
+                return;
             }
-            
             renderOrderSummary();
         }
 
-        // Render order summary
         function renderOrderSummary() {
             const container = document.getElementById('order-items');
             const subtotalSpan = document.getElementById('subtotal-amount');
-            
-            if (!container) return;
-            
-            if (cart.length === 0) {
-                container.innerHTML = '<div style="text-align: center; padding: 2rem; font-size: 0.8rem;">No items in cart. <a href="delicacies.html" style="color: #B89BB2;">Go back to delicacies</a></div>';
-                return;
-            }
             
             container.innerHTML = cart.map(item => `
                 <div class="order-item">
@@ -396,9 +382,7 @@
                         <strong>${item.name}</strong><br>
                         <small>${item.detail}</small>
                     </div>
-                    <div class="order-item-price">
-                        KES ${item.price.toLocaleString()}
-                    </div>
+                    <div class="order-item-price">KES ${item.price.toLocaleString()}</div>
                 </div>
             `).join('');
             
@@ -406,142 +390,72 @@
             updateTotal();
         }
 
-        // Update total with delivery fee
         function updateTotal() {
             const totalSpan = document.getElementById('total-amount');
             const deliveryRow = document.getElementById('delivery-row');
-            const deliveryFeeSpan = document.getElementById('delivery-fee');
             
-            let finalTotal = cartTotal + deliveryFee;
+            const finalTotal = cartTotal + deliveryFee;
             totalSpan.innerText = `KES ${finalTotal.toLocaleString()}`;
-            
-            if (deliveryFee > 0) {
-                deliveryRow.style.display = 'flex';
-                deliveryFeeSpan.innerText = `KES ${deliveryFee.toLocaleString()}`;
-            } else {
-                deliveryRow.style.display = 'none';
-            }
+            deliveryRow.style.display = deliveryFee > 0 ? 'flex' : 'none';
         }
 
-        // Handle delivery option change
         function setupDeliveryOptions() {
             const pickupRadio = document.getElementById('pickup');
             const deliveryRadio = document.getElementById('delivery');
             const addressGroup = document.getElementById('address-group');
             
-            if (pickupRadio && deliveryRadio) {
-                pickupRadio.addEventListener('change', () => {
-                    deliveryFee = 0;
-                    deliveryMethod = 'pickup';
-                    addressGroup.style.display = 'none';
-                    updateTotal();
-                });
-                
-                deliveryRadio.addEventListener('change', () => {
-                    deliveryFee = 300;
-                    deliveryMethod = 'delivery';
-                    addressGroup.style.display = 'block';
-                    updateTotal();
-                });
-            }
+            pickupRadio.addEventListener('change', () => {
+                deliveryFee = 0;
+                deliveryMethod = 'pickup';
+                addressGroup.style.display = 'none';
+                updateTotal();
+            });
+            
+            deliveryRadio.addEventListener('change', () => {
+                deliveryFee = 300;
+                deliveryMethod = 'delivery';
+                addressGroup.style.display = 'block';
+                updateTotal();
+            });
         }
 
-        // Submit order directly to Omosaa's WhatsApp
         function submitOrder() {
-            const fullName = document.getElementById('fullName')?.value.trim();
-            const phone = document.getElementById('phone')?.value.trim();
-            const email = document.getElementById('email')?.value.trim();
-            const instructions = document.getElementById('instructions')?.value.trim();
-            const address = document.getElementById('address')?.value.trim();
+            const fullName = document.getElementById('fullName').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const address = document.getElementById('address').value.trim();
+            const instructions = document.getElementById('instructions').value.trim();
             
-            if (!fullName) {
-                alert('Please enter your full name');
+            if (!fullName || !phone || (deliveryMethod === 'delivery' && !address)) {
+                alert('Please fill in all required fields.');
                 return;
             }
-            
-            if (!phone) {
-                alert('Please enter your phone number');
-                return;
-            }
-            
-            if (deliveryMethod === 'delivery' && !address) {
-                alert('Please enter your delivery address');
-                return;
-            }
-            
-            // Build order message
-            let orderDetails = cart.map(item => `🍰 ${item.name} - ${item.detail} - KES ${item.price.toLocaleString()}`).join('\n');
-            
+
+            let orderDetails = cart.map(item => `🍰 ${item.name} (${item.detail}) - KES ${item.price.toLocaleString()}`).join('\n');
+            let finalTotal = cartTotal + deliveryFee;
+
             let message = `🍰 *NEW ORDER FROM OMOSAA'S BAKERY* 🍰\n\n`;
-            message += `*Customer Details:*\n`;
-            message += `Name: ${fullName}\n`;
-            message += `Phone: ${phone}\n`;
-            if (email) message += `Email: ${email}\n`;
-            message += `\n*Order Details:*\n${orderDetails}\n`;
+            message += `*Customer:* ${fullName}\n*Phone:* ${phone}\n`;
+            message += `\n*Items:*\n${orderDetails}\n`;
             message += `\n*Subtotal:* KES ${cartTotal.toLocaleString()}`;
-            
-            if (deliveryMethod === 'delivery') {
-                message += `\n*Delivery Fee:* KES 300`;
-                message += `\n*Delivery Address:* ${address}`;
-            } else {
-                message += `\n*Pickup:* Omosaa's Bakery`;
-            }
-            
-            const finalTotal = cartTotal + deliveryFee;
+            message += `\n*Delivery:* KES ${deliveryFee.toLocaleString()} (${deliveryMethod.toUpperCase()})`;
+            if (deliveryMethod === 'delivery') message += `\n*Address:* ${address}`;
             message += `\n\n*TOTAL:* KES ${finalTotal.toLocaleString()}`;
+            if (instructions) message += `\n\n*Special Instructions:* ${instructions}`;
+            message += `\n\n_Thank you for ordering!_ 💕`;
+
+            window.open(`https://wa.me/${OMOSAA_WHATSAPP}?text=${encodeURIComponent(message)}`, '_blank');
             
-            if (instructions) {
-                message += `\n\n*Special Instructions:* ${instructions}`;
-            }
-            
-            message += `\n\n_Thank you for ordering from Omosaa's Bakery! We'll confirm your order shortly._ 💕`;
-            
-            // Encode for WhatsApp
-            const encodedMessage = encodeURIComponent(message);
-            const whatsappUrl = `https://wa.me/${OMOSAA_WHATSAPP}?text=${encodedMessage}`;
-            
-            // Save order to localStorage
-            const order = {
-                orderId: 'ORD-' + Date.now(),
-                date: new Date().toISOString(),
-                customer: { fullName, phone, email },
-                delivery: { method: deliveryMethod, address: deliveryMethod === 'delivery' ? address : null },
-                items: cart,
-                subtotal: cartTotal,
-                deliveryFee: deliveryFee,
-                total: cartTotal + deliveryFee,
-                instructions: instructions || null
-            };
-            
-            const orders = JSON.parse(localStorage.getItem('omosaaOrders') || '[]');
-            orders.push(order);
-            localStorage.setItem('omosaaOrders', JSON.stringify(orders));
-            
-            // Clear cart
             localStorage.removeItem('omosaaCart');
             localStorage.removeItem('omosaaCartTotal');
-            
-            // Open WhatsApp directly to Omosaa's number
-            window.open(whatsappUrl, '_blank');
-            
-            // Redirect to announcement page
-            setTimeout(() => {
-                window.location.href = 'announcement.html';
-            }, 1500);
+            // Graceful redirection routing back to core context page
+            setTimeout(() => { window.location.href = 'home.html'; }, 1000);
         }
 
-        // Initialize page
-        function init() {
+        window.onload = () => {
             loadCart();
             setupDeliveryOptions();
-            
-            const submitBtn = document.getElementById('submit-order-btn');
-            if (submitBtn) {
-                submitBtn.addEventListener('click', submitOrder);
-            }
-        }
-        
-        init();
+            document.getElementById('submit-order-btn').addEventListener('click', submitOrder);
+        };
     </script>
 </body>
 </html>
