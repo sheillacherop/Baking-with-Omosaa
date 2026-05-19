@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Omosaa's Bakery | Baking Therapy</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>Omosaa Bakery</title>
     <style>
         * {
             margin: 0;
@@ -13,187 +12,61 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #FFF5E0;
-            height: 100vh;
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-        }
-
-        /* Main Container */
-        .container {
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100%;
-            width: 100%;
-            padding: 2rem;
+            min-height: 100vh;
+            background-color: #1a1512; 
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Container scales naturally with the image */
+        .hero-container {
             position: relative;
-        }
-
-        /* Heading Section */
-        .heading-section {
-            text-align: center;
-            margin-bottom: 1rem;
-        }
-
-        /* Main Heading - Great Vibes (matching Home page) */
-        .main-heading {
-            font-family: 'Great Vibes', cursive;
-            font-size: 6rem;
-            color: #B89BB2;
-            line-height: 1.2;
-            animation: fadeInFloat3D 3s ease-out;
-            text-shadow: 
-                2px 2px 4px rgba(0,0,0,0.05),
-                4px 4px 8px rgba(0,0,0,0.03),
-                8px 8px 16px rgba(0,0,0,0.02);
-            transform-style: preserve-3d;
-            letter-spacing: 2px;
-            font-weight: normal;
-        }
-
-        /* Subheading - Left Aligned, Inter Font */
-        .subheading {
-            font-family: 'Inter', serif;
-            font-size: 11px;
-            color: #B89BB2;
-            text-align: left;
-            margin-left: 5%;
-            margin-top: -0.5rem;
-            letter-spacing: 1px;
-            opacity: 0.9;
-            animation: fadeInFloat3D 3.2s ease-out;
-            font-weight: 300;
-        }
-
-        /* Bottom Button Container */
-        .button-container {
-            position: absolute;
-            bottom: 80px;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: center;
-            animation: fadeInUp 3.5s ease-out;
-        }
-
-        /* Great Vibes Button */
-        .btn-enter {
-            font-family: 'Great Vibes', cursive;
-            font-size: 2rem;
-            color: #B89BB2;
-            background: #FFF5E0;
-            border: 1.5px solid #B89BB2;
-            padding: 12px 40px;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            text-decoration: none;
             display: inline-block;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            width: 100%;
+        }
+
+        /* Displays the image at its natural, unconstrained size */
+        .bg-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* The Dark Teal Navigation Button */
+        .enter-btn {
+            position: absolute;
+            bottom: 20%; 
+            right: 28%; 
+            
+            background-color: #1d3f3d; 
+            color: #f4ebd9;            
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: bold;
             letter-spacing: 1px;
+            padding: 10px 22px;
+            border-radius: 20px;       
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
         }
 
-        .btn-enter:hover {
-            background: #B89BB2;
-            color: #FFF5E0;
-            transform: scale(1.05) translateY(-5px);
-            box-shadow: 0 12px 24px rgba(184, 155, 178, 0.2);
-        }
-
-        /* Animations */
-        @keyframes fadeInFloat3D {
-            0% {
-                opacity: 0;
-                transform: translateY(30px) translateZ(-50px) rotateX(5deg);
-                filter: blur(4px);
-            }
-            40% {
-                opacity: 0.5;
-                transform: translateY(-5px) translateZ(10px) rotateX(-2deg);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0) translateZ(0) rotateX(0);
-                filter: blur(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .main-heading {
-                font-size: 4.5rem;
-            }
-            .subheading {
-                margin-left: 8%;
-                font-size: 10px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .main-heading {
-                font-size: 3.2rem;
-            }
-            .subheading {
-                margin-left: 10%;
-                font-size: 9px;
-                margin-top: -0.3rem;
-            }
-            .btn-enter {
-                font-size: 1.5rem;
-                padding: 10px 32px;
-            }
-            .button-container {
-                bottom: 50px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .main-heading {
-                font-size: 2.2rem;
-                letter-spacing: 1px;
-            }
-            .subheading {
-                margin-left: 12%;
-                font-size: 8px;
-                margin-top: -0.2rem;
-            }
-            .btn-enter {
-                font-size: 1.2rem;
-                padding: 8px 24px;
-            }
-            .button-container {
-                bottom: 40px;
-            }
+        /* Hover Effect */
+        .enter-btn:hover {
+            background-color: #142d2b; 
+            transform: translateY(-2px); 
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Heading Section -->
-        <div class="heading-section">
-            <h1 class="main-heading">Baking with Omosaa 💕</h1>
-            <p class="subheading">You can never go wrong with Omosaa</p>
-        </div>
-    </div>
 
-    <!-- Bottom Button -->
-    <div class="button-container">
-        <a href="home.html" class="btn-enter">Enter Bakery</a>
-    </div>
+    <main class="hero-container">
+        <img src="images/Bakery1.png" alt="Omosaa Bakery Background" class="bg-image">
+        
+        <a href="home.html" class="enter-btn">ENTER BAKERY</a>
+    </main>
+
 </body>
 </html>
