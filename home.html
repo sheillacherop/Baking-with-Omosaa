@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Omosaa's Bakery | Home</title>
+    <title>Omosaa's Bakery | Home & Announcements</title>
     <link href="https://fonts.googleapis.com/css2?family=Allura&family=Great+Vibes&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        /* --- CSS STYLES --- */
+        
         * {
             margin: 0;
             padding: 0;
@@ -15,12 +17,17 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #FFF5E0;
-            color: #5E2E3E;
+            /* Displays Bakery2.png at its natural size as the background */
+            background-image: url('images/Bakery2.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            color: #1d3f3d; /* Dark Teal text color */
             line-height: 1.6;
         }
 
-        /* Floating Navigation */
+        /* Floating Navigation - Dynamic Dark Teal theme */
         .navbar {
             position: fixed;
             top: 20px;
@@ -30,18 +37,18 @@
             justify-content: center;
             gap: 2rem;
             padding: 0.8rem 2rem;
-            background: rgba(255, 245, 224, 0.92);
+            background: rgba(29, 63, 61, 0.9); /* Dark Teal Background */
             backdrop-filter: blur(10px);
             border-radius: 50px;
             width: fit-content;
             margin: 0 auto;
             z-index: 1000;
-            border: 1px solid rgba(184, 155, 178, 0.3);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(225, 247, 244, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
         .navbar a {
-            color: #B89BB2;
+            color: #E1F7F4; /* Mint Cream Link Color */
             text-decoration: none;
             font-family: 'Inter', sans-serif;
             font-weight: 500;
@@ -51,389 +58,360 @@
         }
 
         .navbar a:hover {
-            color: #8B6B82;
+            color: #ffffff;
             transform: translateY(-2px);
         }
 
-        /* Main Container */
+        /* Main Layout Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 6rem 2rem 4rem;
+            padding: 7rem 2rem 4rem;
         }
 
-        /* Hero Section */
+        /* Hero Header Section */
         .hero {
             text-align: center;
             margin-bottom: 3rem;
-            animation: fadeIn 1.5s ease;
         }
 
         .hero h1 {
             font-family: 'Great Vibes', cursive;
-            font-size: 4rem;
-            color: #B89BB2;
+            font-size: 4.5rem;
+            color: #1d3f3d; /* Dark Teal */
             margin-bottom: 0.5rem;
             font-weight: normal;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6);
         }
 
         .hero p {
             font-family: 'Inter', serif;
-            font-size: 0.9rem;
-            color: #8B6B82;
+            font-size: 1.1rem;
+            color: #1d3f3d;
             max-width: 700px;
             margin: 0 auto;
             font-style: italic;
+            font-weight: 500;
         }
 
-        /* Story Section - Centered Paragraph, No Heading */
+        /* Story Section - Centered Clean Text */
         .story-section {
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto 4rem auto;
             text-align: center;
+            background: rgba(225, 247, 244, 0.85); /* Mint Cream frosted block */
+            padding: 2rem;
+            border-radius: 25px;
+            border: 1px solid rgba(29, 63, 61, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
         }
 
         .story-section p {
-            font-size: 1rem;
-            color: #5E2E3E;
-            line-height: 1.8;
-            margin-bottom: 1rem;
+            font-size: 1.05rem;
+            color: #1d3f3d;
+            line-height: 1.9;
         }
 
-        /* Section Titles */
+        /* Unified Grid Headers */
         .section-title {
             font-family: 'Great Vibes', cursive;
-            font-size: 2.2rem;
-            color: #B89BB2;
+            font-size: 2.5rem;
+            color: #1d3f3d;
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 0.3rem;
             font-weight: normal;
         }
 
         .section-subtitle {
             text-align: center;
-            color: #8B6B82;
-            font-size: 0.85rem;
+            color: #1d3f3d;
+            font-size: 0.9rem;
             margin-bottom: 2rem;
             font-style: italic;
+            font-weight: 500;
         }
 
-        /* Ingredients Grid */
-        .ingredients-grid {
+        /* Modernized Announcements Cards Grid */
+        .offers-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.8rem;
-            margin-bottom: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
         }
 
-        .ingredient-card {
-            background: rgba(255, 255, 255, 0.7);
+        .offer-card {
+            background: rgba(255, 255, 255, 0.85); /* Clean clean cards */
+            backdrop-filter: blur(5px);
             border-radius: 20px;
-            padding: 1.5rem;
-            text-align: center;
+            padding: 1.8rem;
+            border: 1px solid rgba(29, 63, 61, 0.15);
             transition: all 0.3s ease;
-            border: 1px solid rgba(184, 155, 178, 0.2);
         }
 
-        .ingredient-card:hover {
+        .offer-card:hover {
             transform: translateY(-5px);
-            background: white;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            background: rgba(225, 247, 244, 0.95); /* Shifts to mint tint on hover */
+            box-shadow: 0 8px 20px rgba(29, 63, 61, 0.1);
         }
 
-        .ingredient-card i {
+        .offer-title {
+            font-family: 'Great Vibes', cursive;
             font-size: 2rem;
-            color: #B89BB2;
+            color: #1d3f3d;
+            margin-bottom: 0.6rem;
+        }
+
+        .offer-text {
+            font-size: 0.95rem;
+            color: #2c4e4b;
+        }
+
+        .highlight {
+            font-weight: 700;
+            color: #1d3f3d;
+            text-decoration: underline;
+        }
+
+        /* Our Promise & Policies Section */
+        .policy-section {
+            background: rgba(225, 247, 244, 0.9); /* Mint base */
+            backdrop-filter: blur(5px);
+            border-radius: 30px;
+            padding: 2.5rem;
+            margin-bottom: 4rem;
+            border: 1px solid rgba(29, 63, 61, 0.2);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .policy-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.3rem;
+            color: #1d3f3d;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .policy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .policy-item {
+            text-align: center;
+            padding: 0.5rem;
+        }
+
+        .policy-item i {
+            font-size: 2.2rem;
+            color: #1d3f3d;
             margin-bottom: 0.8rem;
         }
 
-        .ingredient-card h3 {
-            font-size: 1.1rem;
-            color: #5E2E3E;
-            margin-bottom: 0.5rem;
+        .policy-item h4 {
+            font-size: 1.15rem;
+            margin-bottom: 0.6rem;
+            color: #1d3f3d;
+            font-weight: 600;
         }
 
-        .ingredient-card p {
-            font-size: 0.8rem;
-            color: #8B6B82;
-        }
-
-        /* Kenyan Staples Special Style */
-        .kenyan-card {
-            background: rgba(184, 155, 178, 0.1);
-            border-color: #B89BB2;
-        }
-
-        /* Promise Section */
-        .promise-section {
-            background: rgba(184, 155, 178, 0.1);
-            border-radius: 30px;
-            padding: 2.5rem;
-            margin: 3rem 0;
-            text-align: center;
-        }
-
-        .promise-section h2 {
-            font-family: 'Great Vibes', cursive;
-            font-size: 2rem;
-            color: #B89BB2;
-            margin-bottom: 1rem;
-        }
-
-        .promise-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .promise-item {
+        .policy-item p {
             font-size: 0.9rem;
-            color: #5E2E3E;
+            color: #2c4e4b;
         }
 
-        .promise-item i {
-            color: #B89BB2;
-            margin-right: 8px;
-        }
-
-        /* CTA Buttons */
+        /* Call To Action Buttons */
         .cta-buttons {
             display: flex;
             justify-content: center;
             gap: 1.5rem;
-            margin: 2rem 0 3rem;
+            margin: 2rem 0 4rem;
             flex-wrap: wrap;
         }
 
         .btn {
             font-family: 'Inter', sans-serif;
-            padding: 12px 32px;
+            padding: 12px 35px;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             transition: all 0.3s ease;
         }
 
         .btn-primary {
-            background: #B89BB2;
-            color: #FFF5E0;
-            border: 1px solid #B89BB2;
+            background: #1d3f3d; /* Dark Teal */
+            color: #E1F7F4;       /* Mint Text */
+            border: 1px solid #1d3f3d;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
         }
 
         .btn-primary:hover {
-            background: #FFF5E0;
-            color: #B89BB2;
+            background: #E1F7F4;
+            color: #1d3f3d;
             transform: translateY(-3px);
         }
 
         .btn-secondary {
-            background: transparent;
-            color: #B89BB2;
-            border: 1px solid #B89BB2;
+            background: rgba(255, 255, 255, 0.8);
+            color: #1d3f3d;
+            border: 1px solid #1d3f3d;
+            backdrop-filter: blur(5px);
         }
 
         .btn-secondary:hover {
-            background: #B89BB2;
-            color: #FFF5E0;
+            background: #1d3f3d;
+            color: #E1F7F4;
             transform: translateY(-3px);
         }
 
-        /* Footer */
+        /* Dark Teal Styled Footer */
         .footer-card {
-            background: #B89BB2;
+            background: rgba(29, 63, 61, 0.95); /* Dark Teal */
             border-radius: 30px;
-            padding: 2rem;
+            padding: 2.5rem;
             text-align: center;
-            color: #FFF5E0;
+            color: #E1F7F4; /* Mint Text */
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
         }
 
         .footer-card h3 {
             font-family: 'Great Vibes', cursive;
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             margin-bottom: 0.5rem;
             font-weight: normal;
         }
 
         .footer-card p {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             opacity: 0.9;
         }
 
         .footer-card .social-links {
-            margin-top: 1rem;
+            margin-top: 1.2rem;
+            margin-bottom: 1.2rem;
         }
 
         .footer-card .social-links a {
-            color: #FFF5E0;
-            margin: 0 0.5rem;
-            font-size: 1.2rem;
-            transition: opacity 0.3s;
+            color: #E1F7F4;
+            margin: 0 0.7rem;
+            font-size: 1.4rem;
+            transition: all 0.3s;
         }
 
         .footer-card .social-links a:hover {
-            opacity: 0.7;
+            color: #ffffff;
+            transform: scale(1.1);
         }
 
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .bon-appetit {
+            font-family: 'Allura', cursive;
+            font-size: 2.2rem;
+            text-align: center;
+            margin-top: 2rem;
+            color: #1d3f3d;
+            text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
         }
 
-        /* Responsive */
+        /* Responsive UI Adjustments */
         @media (max-width: 768px) {
-            .navbar {
-                gap: 1rem;
-                padding: 0.6rem 1.2rem;
-                top: 15px;
-            }
-            .navbar a {
-                font-size: 0.7rem;
-            }
-            .container {
-                padding: 5rem 1.5rem 3rem;
-            }
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-            .section-title {
-                font-size: 1.8rem;
-            }
-            .story-section p {
-                font-size: 0.9rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .navbar {
-                gap: 0.7rem;
-                padding: 0.5rem 1rem;
-            }
-            .navbar a {
-                font-size: 0.6rem;
-            }
-            .hero h1 {
-                font-size: 2rem;
-            }
-            .cta-buttons {
-                gap: 1rem;
-            }
-            .btn {
-                padding: 8px 20px;
-                font-size: 0.8rem;
-            }
+            .navbar { gap: 1rem; padding: 0.6rem 1.2rem; top: 15px; }
+            .navbar a { font-size: 0.75rem; }
+            .container { padding: 6rem 1.5rem 3rem; }
+            .hero h1 { font-size: 3rem; }
+            .section-title { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
-    <!-- Floating Navigation -->
+
     <div class="navbar">
         <a href="index.html">Intro</a>
         <a href="home.html">Home</a>
         <a href="delicacies.html">Delicacies</a>
         <a href="orders.html">Orders</a>
-        <a href="announcement.html">Announcement</a>
     </div>
 
     <div class="container">
-        <!-- Hero Section -->
+        
         <div class="hero">
             <h1>Omosaa's Story</h1>
             <p>Where love meets luxury in every bite.</p>
         </div>
 
-        <!-- Story Section - No Heading, Centered Paragraph -->
         <div class="story-section">
-            <p>Baking started as a little bit of therapy for me, Omosaa;a way to pour love into something sweet. I learned and believe that the best ingredient in any recipe is always the heart. Today, every cake, bread, and pastry is still made by hand, with the same warmth and intention i started with. Because at Omosaa's Bakery, we don't just bake, we create joy, one crumb at a time.</p>
+            <p>Baking started as a little bit of therapy for me, Omosaa; a way to pour love into something sweet. I learned and believe that the best ingredient in any recipe is always the heart. Today, every cake, bread, and pastry is still made by hand, with the same warmth and intention i started with. Because at Omosaa's Bakery, we don't just bake, we create joy, one crumb at a time.</p>
         </div>
 
-        <!-- Foreign Luxury Ingredients -->
-        <h2 class="section-title">A Taste of the World</h2>
-        <p class="section-subtitle">Luxury ingredients, flown in for you</p>
-        <div class="ingredients-grid">
-            <div class="ingredient-card">
-                <i class="fas fa-chocolate-bar"></i>
-                <h3>Hermès Chocolate</h3>
-                <p>Rare, silky-smooth, and utterly luxurious — imported for our signature cakes and pastries.</p>
+        <h2 class="section-title">Sweet Announcements</h2>
+        <p class="section-subtitle">Important treats and notices from our kitchen</p>
+        
+        <div class="offers-grid">
+            <div class="offer-card">
+                <div class="offer-title">Big Order Treat</div>
+                <div class="offer-text">Order <span class="highlight">3 boxes of cupcakes</span> and get <span class="highlight">quarter kg of your choice cake</span> — absolutely free!</div>
             </div>
-            <div class="ingredient-card">
-                <i class="fas fa-seedling"></i>
-                <h3>Italian Pistachio Paste</h3>
-                <p>Creamy, nutty, authentic — straight from Sicily.</p>
+            <div class="offer-card">
+                <div class="offer-title">3-day Delivery</div>
+                <div class="offer-text">We deliver <span class="highlight">3 days after your order</span>. Order 3 days before and your treats will arrive fresh.</div>
             </div>
-            <div class="ingredient-card">
-                <i class="fas fa-leaf"></i>
-                <h3>French Vanilla Bean</h3>
-                <p>Real vanilla. Not extract. You can taste the difference.</p>
+            <div class="offer-card">
+                <div class="offer-title">Refer & Save</div>
+                <div class="offer-text">Refer a friend and you both get <span class="highlight">discounts on your next order</span>. The more you share, the more you save!</div>
             </div>
-            <div class="ingredient-card">
-                <i class="fas fa-wheat-alt"></i>
-                <h3>Unbleached French Flour</h3>
-                <p>Finely milled, never treated — lighter, fluffier bakes.</p>
+            <div class="offer-card">
+                <div class="offer-title">Loyalty Stamp Card</div>
+                <div class="offer-text">Every purchase equals one stamp. Fill your card and get a <span class="highlight">free 1kg cake of your choice</span>.</div>
             </div>
-        </div>
-
-        <!-- Kenyan Staples Section -->
-        <h2 class="section-title">Trusted Kenyan Goodness</h2>
-        <p class="section-subtitle">Fresh, local, and always reliable</p>
-        <div class="ingredients-grid">
-            <div class="ingredient-card kenyan-card">
-                <i class="fas fa-tint"></i>
-                <h3>Fresh Kenyan Milk</h3>
-                <p>Sourced from local farms — rich, creamy, and pure.</p>
+            <div class="offer-card">
+                <div class="offer-title">Birthday Love</div>
+                <div class="offer-text">Celebrating a birthday or ceremony? You get <span class="highlight">3 free cupcakes</span> — your flavor, your joy.</div>
             </div>
-            <div class="ingredient-card kenyan-card">
-                <i class="fas fa-egg"></i>
-                <h3>Free-Range Eggs</h3>
-                <p>Organic, golden-yolked, and full of flavor.</p>
-            </div>
-            <div class="ingredient-card kenyan-card">
-                <i class="fas fa-cube"></i>
-                <h3>Kenyan Sugar</h3>
-                <p>Sweet, fine, and perfectly balanced.</p>
-            </div>
-            <div class="ingredient-card kenyan-card">
-                <i class="fas fa-birthday-cake"></i>
-                <h3>Sprinkles & M&Ms</h3>
-                <p>Colorful, fun, and absolutely irresistible.</p>
+            <div class="offer-card">
+                <div class="offer-title">Payment protocol</div>
+                <div class="offer-text">For all your purchases, kindly pay 75% upfront to accommodate the ingredients and decos'. Ensure you always call for any impromptu's.</div>
             </div>
         </div>
 
-        <!-- You Can Never Go Wrong with Omosaa Section -->
-        <div class="promise-section">
-            <h2>You Can Never Go Wrong with Omosaa</h2>
-            <div class="promise-grid">
-                <div class="promise-item"><i class="fas fa-check-circle"></i> Baked fresh — never day-old</div>
-                <div class="promise-item"><i class="fas fa-check-circle"></i> Custom cakes that taste as good as they look</div>
-                <div class="promise-item"><i class="fas fa-check-circle"></i> We listen — you tell us, we make it</div>
-                <div class="promise-item"><i class="fas fa-check-circle"></i> Nairobi delivery, warm and on time</div>
+        <div class="policy-section">
+            <h2 class="policy-title">Our Promise to You</h2>
+            <div class="policy-grid">
+                <div class="policy-item">
+                    <i class="fas fa-credit-card"></i>
+                    <h4>Payment Methods</h4>
+                    <p>Upon confirming your order, you will choose how to pay — M-Pesa, cash on delivery, or bank transfer.</p>
+                </div>
+                <div class="policy-item">
+                    <i class="fas fa-undo-alt"></i>
+                    <h4>Refunds & Cancellations</h4>
+                    <p>We offer refunds when delicacies have not been altered. If you change your mind, you have <strong>24 hours</strong> to cancel or change your order. REMEMBER, there is no last minute change which equals to no refund.</p>
+                </div>
+                <div class="policy-item">
+                    <i class="fas fa-heart"></i>
+                    <h4>Made With Love</h4>
+                    <p>Every order is baked fresh, never frozen, and packed with the same care Omosaa started with.</p>
+                </div>
             </div>
         </div>
 
-        <!-- Call to Action -->
         <div class="cta-buttons">
             <a href="orders.html" class="btn btn-primary">Order Now</a>
             <a href="delicacies.html" class="btn btn-secondary">See Delicacies</a>
         </div>
 
-        <!-- Footer -->
         <div class="footer-card">
             <h3>Omosaa's Bakery</h3>
-            <p>📍 Nairobi, Kenya</p>
-            <p>📞 0708727556 | 📧 omosaa@bakery.co.ke</p>
+            <p> Nairobi, Kenya</p>
+            <p> 0708727556 | 📧 omosaa@bakery.co.ke</p>
             <div class="social-links">
                 <a href="#"><i class="fab fa-instagram"></i></a>
                 <a href="#"><i class="fab fa-facebook"></i></a>
                 <a href="#"><i class="fab fa-whatsapp"></i></a>
             </div>
-            <p style="margin-top: 1rem; font-size: 0.7rem;">✨ Baked fresh daily with love ✨</p>
+            <p style="font-size: 0.75rem; opacity: 0.8;">✨ Baked fresh daily with love ✨</p>
+        </div>
+
+        <div class="bon-appetit">
+            enjoy your orders… bon appétit!
         </div>
     </div>
 </body>
